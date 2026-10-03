@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quincy | Tech-Payments</title></head>
+<body style="margin:0;padding:20px;background-color:#ffffff;">
+<table id="signature" role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#222222;">
+<tr>
+<td width="66" valign="middle" style="width:66px;padding:0 10px 0 0;vertical-align:middle;">
+<img src="https://raw.githubusercontent.com/albanusdesign-alt/Synapse-Engine/52c225e0ed16d4a66fbd85220b22e37001bde69f/C422C95F-0183-4E64-8ABC-C97264F81E90.png" alt="Tech-Payments" width="66" height="52" border="0" style="display:block;width:66px;height:52px;border:0;outline:none;text-decoration:none;">
+</td>
+<td valign="top" style="border-left:1px solid #b8b8b8;padding:0 0 0 10px;vertical-align:top;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+<tr><td style="font-size:10px;line-height:14px;font-weight:bold;color:#666666;">QUINCY D. WASHINGTON</td></tr>
+<tr><td style="font-size:9px;line-height:13px;font-weight:bold;color:#666666;">Solutions Specialist | Tech-Payments</td></tr>
+<tr><td height="7" style="height:7px;font-size:1px;line-height:7px;">&nbsp;</td></tr>
+<tr><td style="font-size:8px;line-height:12px;color:#222222;">Payment &amp; Business Solutions, Simplified</td></tr>
+<tr><td style="font-size:8px;line-height:13px;color:#222222;white-space:nowrap;"><a href="tel:+15034862030" style="color:#168fe5;text-decoration:underline;">503.486.2030</a>&nbsp;|&nbsp;<a href="mailto:quincy.washington@tech-payments.com" style="color:#222222;text-decoration:underline;">quincy.washington@tech-payments.com</a></td></tr>
+<tr><td style="font-size:8px;line-height:13px;"><a href="https://tech-payments.com" style="color:#222222;text-decoration:underline;">Tech-Payments.com</a></td></tr>
+</table>
+</td></tr></table>
+
+<div style="margin-top:28px;font:14px/1.5 Arial,Helvetica,sans-serif;max-width:420px;color:#333;">
+<button id="copy-signature" type="button" style="border:0;border-radius:8px;padding:14px 20px;background:#06445d;color:white;font:bold 16px Arial;">Copy signature</button>
+<p id="copy-status" role="status" aria-live="polite">Open this published page in Safari, then tap Copy signature. Paste into Settings → Apps → Mail → Signature.</p>
+<p style="font-size:12px;color:#666;">After pasting, send a test email to confirm Mail keeps the logo.</p>
+<noscript>Open the published HTTPS page in Safari. This file preview cannot run the copy button.</noscript>
+</div>
+<script>
+const button = document.getElementById('copy-signature');
+const status = document.getElementById('copy-status');
+button.addEventListener('click', () => {
+  if (!window.isSecureContext || !navigator.clipboard || !window.ClipboardItem) {
+    status.textContent = 'Open the published HTTPS page in Safari. Copying is unavailable in this file preview.';
+    return;
+  }
+  const signature = document.getElementById('signature');
+  const logo = signature.querySelector('img');
+  if (!logo.complete || !logo.naturalWidth) {
+    status.textContent = 'The logo has not loaded. Wait for it to appear, or reload the page, then tap Copy signature again.';
+    return;
+  }
+  const clone = signature.cloneNode(true);
+  clone.removeAttribute('id');
+  const plain = 'QUINCY D. WASHINGTON\nSolutions Specialist | Tech-Payments\nPayment & Business Solutions, Simplified\n503.486.2030 | quincy.washington@tech-payments.com\nTech-Payments.com';
+  try {
+    const item = new ClipboardItem({
+      'text/html': new Blob([clone.outerHTML], {type:'text/html'}),
+      'text/plain': new Blob([plain], {type:'text/plain'})
+    });
+    navigator.clipboard.write([item]).then(() => {
+      status.textContent = 'Signature HTML copied, including the logo link. Paste into Mail’s signature settings, then send a test email.';
+    }).catch(() => {
+      status.textContent = 'Safari could not copy the signature. Open this published page directly in Safari and tap the button again.';
+    });
+  } catch (error) {
+    status.textContent = 'Copying is unavailable here. Open the published HTTPS page directly in Safari.';
+  }
+});
+</script>
+</body></html>
